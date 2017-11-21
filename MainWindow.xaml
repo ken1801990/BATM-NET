@@ -1,0 +1,84 @@
+﻿<Window x:Class="BitcoinATM_Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitcoinATM_Application"
+        mc:Ignorable="d"
+        Title="BITCOIN ATM"
+        WindowStyle="None"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="600"
+        MinWidth="800"
+        MaxHeight="1080"
+        MaxWidth="1920"
+        SizeToContent="WidthAndHeight">
+    <Grid>
+        <DockPanel LastChildFill="False"  Style="{StaticResource DockPanelStyle-Header}">
+            <Label x:Name="HearderAppNameLabel" Content="BITCOIN ATM" Style="{StaticResource DockPanelStyle-Header-LabelTitle}"/>
+        </DockPanel>
+
+        <DockPanel x:Name="PaneMainScreen" Style="{StaticResource DockPanelStyle-MainScreen}">
+            <Button x:Name="BtnBuy" Content="BUY BITCOIN" Style="{StaticResource ButtonMainScreen}" Click="BtnBuy_Click"/>
+            <Button x:Name="BtnSell" Content="SELL BITCOIN" Style="{StaticResource ButtonMainScreen}" Click="BtnSell_Click"/>
+        </DockPanel>
+
+        <DockPanel x:Name="PaneLoginScreen" Style="{StaticResource DockPanelStyle-MainScreen}" Visibility="Hidden">
+            <StackPanel>
+                <Label Content="Please Enter Your Access" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <TextBox x:Name="txtWalletAddress" Style="{StaticResource Screen-TextBox}"></TextBox>
+                <Image HorizontalAlignment="Stretch" Name="FrameHolder"  VerticalAlignment="Top" Width="320" Margin="10 10 10 10"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button x:Name="BtnLoginScreenSubmit" Content="SUBMIT" Style="{StaticResource ButtonSubmit}"/>
+                <Button x:Name="BtnLoginScreenBack" Content="BACK" Style="{StaticResource ButtonBack}"  Click="BtnLoginScreenBack_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel x:Name="PaneBuyScreen" Style="{StaticResource DockPanelStyle-MainScreen}" Visibility="Hidden">
+            <StackPanel>
+                <Label Content="Your Available Balance:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="lbAddressBalance" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+
+                <Label Content="Current Price Bitcoin:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="lbCurrentPrice" Content="N/A" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+
+                <Label Content="Input your money:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <TextBox x:Name="txtInputMoney" Style="{StaticResource Screen-TextBox}"></TextBox>
+
+                <Label Content="Your total money input:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="lbTotalMoney" Content="0.00" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button x:Name="BtnBuyScreenEnter" Content="ENTER" Style="{StaticResource ButtonEnter}" Click="BtnBuyScreenEnter_Click"/>
+                <Button x:Name="BtnBuyScreenSubmit" Content="SUBMIT" Style="{StaticResource ButtonSubmit}" Click="BtnBuyScreenSubmit_Click"/>
+                <Button x:Name="BtnBuyScreenBack" Content="BACK" Style="{StaticResource ButtonBack}"  Click="BtnBuyScreenBack_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel x:Name="PanelBuyScreenResul" Style="{StaticResource DockPanelStyle-MainScreen}" Visibility="Hidden">
+            <StackPanel>
+                <Label Content="Address Wallet:" Style="{StaticResource Screen-LabelTitle}" Visibility="Hidden"></Label>
+                <Label  x:Name="PanelBuyScreenResul_lbAddressWallet" Content="N/A" Style="{StaticResource Screen-LabelTitleRight}" Visibility="Hidden"></Label>
+                <Label Content="Bitcoin Balance:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="PanelBuyScreenResul_lbBitCoinBalance" Content="N/A" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+                <Label Content="Cash Input:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="PanelBuyScreenResul_lbCashTotal" Content="N/A" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+                <Label Content="Final Bitcoin Balance:" Style="{StaticResource Screen-LabelTitle}"></Label>
+                <Label  x:Name="PanelBuyScreenResul_lbFinalBitcoinBalance" Content="N/A" Style="{StaticResource Screen-LabelTitleRight}"></Label>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button x:Name="BtnBuyScreenResultSubmit" Content="SUBMIT" Style="{StaticResource ButtonSubmit}"/>
+                <Button x:Name="BtnBuyScreenResultBack" Content="BACK" Style="{StaticResource ButtonBack}" Click="BtnBuyScreenResultBack_Click"/>
+            </StackPanel>
+        </DockPanel>
+        
+        <DockPanel LastChildFill="False"  Style="{StaticResource DockPanelStyle-Footer}">
+            <DockPanel.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+            </DockPanel.Effect>
+            <Label x:Name="FooterContactLabel" Content="Version: 1.0" Style="{StaticResource DockPanelStyle-Footer-LabelTitle}"/>
+        </DockPanel>
+    </Grid>
+</Window>
